@@ -6,6 +6,7 @@ import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
 import ViewUser from './components/ViewUser'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ViewBookings from './components/ViewBookings'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="add-movie" element={<AddMovies />} />
           <Route path="view-movie" element={<ViewMovies />} />
           <Route path="add-booking" element={<AddBooking />} />
-          {/* <Route path="view-booking" element={<ViewBo />} /> */}
+          <Route path="view-booking" element={<ViewBookings />} />
           <Route path="add-user" element={<AddUser />} />
           <Route path="view-user" element={<ViewUser />} />
         </Routes>

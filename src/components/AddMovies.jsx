@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import NavBar from './NavBar'
 
 const AddMovies = () => {
     const [input, changeInput] = useState({
@@ -32,6 +33,7 @@ const AddMovies = () => {
 
     return (
         <div>
+            <NavBar/>
             <div className="container mt-4">
                 <div className="row">
                     <div className="col col-12">
