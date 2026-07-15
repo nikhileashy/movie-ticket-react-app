@@ -6,14 +6,18 @@ import './App.css'
 import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
 import AddBooking from './components/AddBookings'
+import AddUser from './components/AddUser'
+import ViewMovies from './components/ViewMovies'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <AddUser/>
      <AddMovies/>
      <AddBooking/>
+     <ViewMovies/>
     </>
   )
 }
