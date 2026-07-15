@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
+import AddBooking from './components/AddBookings'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
      <AddMovies/>
+     <AddBooking/>
     </>
   )
 }
