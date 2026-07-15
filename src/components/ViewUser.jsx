@@ -136,6 +136,7 @@ const ViewUser = () => {
                                         <th scope="col">Location</th>
                                         <th scope="col">Username</th>
                                         <th scope="col" className="text-center">Membership</th>
+                                        <th scope="col" className="text-center">Actions</th>
                                         <th scope="col" className="px-3">Member Since</th>
                                     </tr>
                                 </thead>
@@ -154,6 +155,15 @@ const ViewUser = () => {
                                                 <span className={`badge ${getMembershipBadge(value.membershipType)}`}>
                                                     {value.membershipType || "Regular"}
                                                 </span>
+                                            </td>
+                                            <td className="text-center">
+                                                <Link
+                                                    to={`/update-user/${value._id}`}
+                                                    state={{ item: value }}
+                                                    className="btn btn-sm btn-outline-primary"
+                                                >
+                                                    Edit
+                                                </Link>
                                             </td>
                                             <td className="px-3">
                                                 {value.registrationDate ? new Date(value.registrationDate).toLocaleDateString() : "N/A"}

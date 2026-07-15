@@ -93,6 +93,7 @@ const ViewBookings = () => {
                                         <th scope="col" className="text-center">Tickets</th>
                                         <th scope="col" className="text-center">Seats</th>
                                         <th scope="col" className="text-center">Payment</th>
+                                        <th scope="col" className="text-center">Actions</th>
                                         <th scope="col" className="text-end px-3">Amount</th>
                                     </tr>
                                 </thead>
@@ -113,6 +114,15 @@ const ViewBookings = () => {
                                             <td className="text-center text-primary fw-semibold">{value.seatNumber}</td>
                                             <td className="text-center">
                                                 <span className="badge bg-secondary">{value.paymentMethod}</span>
+                                            </td>
+                                            <td className="text-center">
+                                                <Link
+                                                    to={`/update-booking/${value._id}`}
+                                                    state={{ item: value }}
+                                                    className="btn btn-sm btn-outline-primary"
+                                                >
+                                                    Edit
+                                                </Link>
                                             </td>
                                             <td className="text-end px-3 fw-bold text-success">
                                                 ${parseFloat(value.bookingAmount || 0).toFixed(2)}
