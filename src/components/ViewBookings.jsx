@@ -5,6 +5,7 @@ import NavBar from './NavBar'
 
 const ViewBookings = () => {
     const [data, changeData] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -21,6 +22,25 @@ const ViewBookings = () => {
             })
             .finally(() => {
                 setLoading(false)
+            })
+    }
+
+    const handleSearch = (value) => {
+        setSearchTerm(value)
+
+        if (!value.trim()) {
+            fetchData()
+            return
+        }
+
+        axios.post("http://localhost:3000/search-booking", { query: value })
+            .then((response) => {
+                changeData(response.data)
+                setError(null)
+            })
+            .catch((err) => {
+                console.error("Error searching bookings: ", err)
+                setError("Unable to search bookings right now. Please try again.")
             })
     }
 
@@ -74,6 +94,27 @@ const ViewBookings = () => {
                             <Link to="/add-booking" className="btn btn-primary">
                                 Make First Reservation
                             </Link>
+                        </div>
+                    </div>
+                )}
+
+                {!loading && !error && data.length > 0 && (
+                    <div className="mb-4">
+                        <div className="input-group">
+                            <span className="input-group-text bg-white" id="booking-search-addon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search text-muted" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                </svg>
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Search bookings by customer name, user ID, movie ID, show time, seat, or payment method..."
+                                aria-label="Search bookings"
+                                aria-describedby="booking-search-addon"
+                                value={searchTerm}
+                                onChange={(e) => handleSearch(e.target.value)}
+                            />
                         </div>
                     </div>
                 )}

@@ -25,19 +25,28 @@ const ViewUser = () => {
             })
     }
 
+    const handleUserSearch = (value) => {
+        setSearchTerm(value)
+
+        if (!value.trim()) {
+            fetchUsers()
+            return
+        }
+
+        axios.post("http://localhost:3000/search-user", { query: value })
+            .then((response) => {
+                setUsers(response.data)
+                setError(null)
+            })
+            .catch((err) => {
+                console.error("Error searching users: ", err)
+                setError("Unable to search users right now. Please retry.")
+            })
+    }
+
     useEffect(() => {
         fetchUsers()
     }, [])
-
-    const filteredUsers = users.filter(user => {
-        const query = searchTerm.toLowerCase()
-        return (
-            (user.fullName && user.fullName.toLowerCase().includes(query)) ||
-            (user.email && user.email.toLowerCase().includes(query)) ||
-            (user.city && user.city.toLowerCase().includes(query)) ||
-            (user.userId && user.userId.toLowerCase().includes(query))
-        )
-    })
 
     const getMembershipBadge = (type) => {
         switch(type) {
@@ -86,7 +95,7 @@ const ViewUser = () => {
                                 aria-label="Search" 
                                 aria-describedby="search-addon"
                                 value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onChange={(e) => handleUserSearch(e.target.value)}
                             />
                         </div>
                     </div>
@@ -141,7 +150,7 @@ const ViewUser = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredUsers.map((value, index) => (
+                                    {users.map((value, index) => (
                                         <tr key={value._id || index}>
                                             <th scope="row" className="px-3 text-primary" style={{ fontFamily: "monospace" }}>{value.userId}</th>
                                             <td className="fw-semibold text-dark">{value.fullName}</td>
@@ -170,7 +179,7 @@ const ViewUser = () => {
                                             </td>
                                         </tr>
                                     ))}
-                                    {filteredUsers.length === 0 && (
+                                    {users.length === 0 && (
                                         <tr>
                                             <td colSpan="10" className="text-center py-4 text-muted">
                                                 No registered customers match your search filters.
