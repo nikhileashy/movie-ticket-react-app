@@ -8,12 +8,14 @@ import Home from './components/HOme'
 import AddBooking from './components/AddBookings'
 import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
+import ViewUser from './components/ViewUser'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <ViewUser/>
     <AddUser/>
      <AddMovies/>
      <AddBooking/>
