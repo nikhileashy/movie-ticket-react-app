@@ -1,6 +1,7 @@
 import './App.css'
 import AddMovies from './components/AddMovies'
-import AddBookings from './components/AddBookings'
+import Home from './components/HOme'
+import AddBooking from './components/AddBookings'
 import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
 import Home from './components/Home'
