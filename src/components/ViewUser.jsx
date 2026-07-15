@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import NavBar from './NavBar'
 
 const ViewUser = () => {
 
@@ -23,6 +24,7 @@ const ViewUser = () => {
 
     return (
         <div>
+            <NavBar/>
             <h2 className="text-center p-5">View Users</h2>
 
             <div className="container">

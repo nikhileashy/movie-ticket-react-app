@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
@@ -10,18 +6,23 @@ import AddBooking from './components/AddBookings'
 import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
 import ViewUser from './components/ViewUser'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ViewBookings from './components/ViewBookings'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <ViewUser/>
-    <AddUser/>
-     <AddMovies/>
-     <ViewBookings/>
-     <AddBooking/>
-     <ViewMovies/>
+     <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="add-movie" element={<AddMovies />} />
+          <Route path="view-movie" element={<ViewMovies />} />
+          <Route path="add-booking" element={<AddBooking />} />
+          <Route path="view-booking" element={<ViewBookings />} />
+          <Route path="add-user" element={<AddUser />} />
+          <Route path="view-user" element={<ViewUser />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

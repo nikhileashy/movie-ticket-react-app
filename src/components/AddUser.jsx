@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import NavBar from './NavBar'
 
 const AddUser = () => {
 
@@ -52,6 +53,7 @@ const AddUser = () => {
 
     return (
         <div>
+            <NavBar/>
             <h2 className="text-center p-5">User Management</h2>
 
             <div className="container">

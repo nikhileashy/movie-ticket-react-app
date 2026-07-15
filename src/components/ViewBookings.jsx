@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NavBar from './NavBar'
 
 const ViewBookings = () => {
     const [data, changeData] = useState([])
@@ -20,6 +21,7 @@ const ViewBookings = () => {
 
     return (
         <div>
+            <NavBar/>
             <table className="table">
                 <thead>
                     <tr>

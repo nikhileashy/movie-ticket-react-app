@@ -1,8 +1,10 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 const Home = () => {
   return (
     <div className="container mt-5">
+      <NavBar/>
       <h1 className="text-center">Welcome to Movie Ticket Booking App</h1>
 
       <p className="text-center mt-3">
