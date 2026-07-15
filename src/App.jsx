@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
+import AddBooking from './components/AddBookings'
+import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
 import ViewUser from './components/ViewUser'
 
@@ -14,6 +16,10 @@ function App() {
   return (
     <>
     <ViewUser/>
+    <AddUser/>
+     <AddMovies/>
+     <AddBooking/>
+     <ViewMovies/>
     </>
   )
 }
