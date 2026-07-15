@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
+import ViewBookings from './components/ViewBookings'
 import AddBooking from './components/AddBookings'
 import AddUser from './components/AddUser'
 import ViewMovies from './components/ViewMovies'
@@ -18,6 +19,7 @@ function App() {
     <ViewUser/>
     <AddUser/>
      <AddMovies/>
+     <ViewBookings/>
      <AddBooking/>
      <ViewMovies/>
     </>
