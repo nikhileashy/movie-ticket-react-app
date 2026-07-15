@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import NavBar from './NavBar'
 
 const AddBooking = () => {
     const [input, changeInput] = useState({
@@ -48,8 +49,9 @@ const AddBooking = () => {
     }
 
     return (
-        <div className="container">
+        <div>
             <NavBar/>
+        <div className="container">
             <div className="row g-3">
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <label className="form-label">User ID</label>
@@ -98,7 +100,7 @@ const AddBooking = () => {
                     <button className="btn btn-success" onClick={readValues}>Submit</button>
                 </div>
             </div>
-        </div>
+        </div></div>
     )
 }
 
