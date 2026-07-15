@@ -93,6 +93,7 @@ const ViewMovies = () => {
                                         <th scope="col" className="text-center">Duration</th>
                                         <th scope="col" className="text-center">Rating</th>
                                         <th scope="col" className="text-center">Show Time</th>
+                                        <th scope="col" className="text-center">Actions</th>
                                         <th scope="col" className="text-end px-3">Ticket Price</th>
                                     </tr>
                                 </thead>
@@ -113,6 +114,15 @@ const ViewMovies = () => {
                                             </td>
                                             <td className="text-center">
                                                 <span className="badge bg-secondary">{value.showTime || "N/A"}</span>
+                                            </td>
+                                            <td className="text-center">
+                                                <Link
+                                                    to={`/update-movie/${value._id}`}
+                                                    state={{ item: value }}
+                                                    className="btn btn-sm btn-outline-primary"
+                                                >
+                                                    Edit
+                                                </Link>
                                             </td>
                                             <td className="text-end px-3 fw-bold">${value.ticketPrice ? parseFloat(value.ticketPrice).toFixed(2) : "0.00"}</td>
                                         </tr>
