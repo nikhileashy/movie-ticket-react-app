@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import AddMovies from './components/AddMovies'
 import Home from './components/HOme'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <>
-     
+     <AddMovies/>
     </>
   )
 }
